@@ -243,12 +243,12 @@ const TrafficAnalysisDashboard: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto p-6">
+      <div className="max-w-7xl mx-auto p-0">
         {/* Map View */}
         {view === 'map' && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
             {/* Map Container */}
-            <div className="lg:col-span-2 bg-white rounded-lg shadow-sm overflow-hidden">
+            <div className="lg:col-span-2 bg-white overflow-hidden">
               <MapContainer
                 center={[20.5937, 78.9629]}
                 zoom={5}
@@ -299,9 +299,9 @@ const TrafficAnalysisDashboard: React.FC = () => {
             </div>
 
             {/* City Rankings */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg shadow-sm p-6 ml-6 border border-gray-200 flex flex-col max-h-[600px]">
               <h2 className="text-xl font-bold mb-4 text-gray-900">City Rankings</h2>
-              <div className="space-y-3">
+              <div className="space-y-3 overflow-y-auto pr-2">
                 {indianCities.map((city) => (
                   <div
                     key={city.id}
@@ -340,9 +340,10 @@ const TrafficAnalysisDashboard: React.FC = () => {
 
         {/* Table View */}
         {view === 'table' && (
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
+          <div className="p-6">
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
                 <thead className="bg-gray-50 border-b border-gray-200">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -419,12 +420,14 @@ const TrafficAnalysisDashboard: React.FC = () => {
                 </tbody>
               </table>
             </div>
+            </div>
           </div>
         )}
 
         {/* Compare View */}
         {view === 'compare' && (
-          <div className="space-y-6">
+          <div className="p-6">
+            <div className="space-y-6">
             {/* City Selectors */}
             <div className="bg-white rounded-lg shadow-sm p-6">
               <h2 className="text-xl font-bold mb-4 text-gray-900">Compare Cities</h2>
@@ -597,11 +600,12 @@ const TrafficAnalysisDashboard: React.FC = () => {
               </div>
             )}
           </div>
+          </div>
         )}
 
         {/* Selected City Details */}
         {selectedCity && view !== 'compare' && (
-          <div className="mt-6 bg-white rounded-lg shadow-sm p-6">
+          <div className="mt-6 mx-6 bg-white rounded-lg shadow-sm p-6">
             <div className="flex items-center gap-4 mb-6">
               <div
                 className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-2xl"
